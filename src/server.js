@@ -1,6 +1,7 @@
 require('dotenv').config({path:'.env'});
 const express = require('express');
 const cors = require('cors');
+const PORT = process.env.PORT || 3000;
 
 
 const routes = require('./routes');
@@ -11,6 +12,6 @@ server.use(express.json());
 
 server.use('/api', routes);
 
-server.listen(process.env.PORT, () => {
-    console.log(`servidor rodando em: http://localhost:${process.env.PORT}`);
+server.listen(PORT, () => {
+    console.log(`servidor rodando em: http://localhost:${PORT}`);
 })
