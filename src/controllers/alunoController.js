@@ -24,7 +24,7 @@ module.exports = {
 
         const json = {error:[], result:{}};
         try {
-            const {id} = req.params;
+            const {id} = req.query;
             const aluno = await alunoService.findById(id);
             if (aluno) json.result = aluno;
         } catch (error) {
