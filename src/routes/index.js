@@ -3,8 +3,8 @@ const router = express.Router();
 
 const alunoController = require('../controllers/alunoController');
 
-router.get('/alunos', alunoController.findAll)
-router.get('/aluno/:id?', alunoController.findById)
-router.post('/aluno', alunoController.insertAluno)
+router.get('/alunos/:id?', alunoController.findById);
+router.get('/alunos', alunoController.findAll);
+router.post('/alunos', alunoController.insertAluno);
 
 module.exports = router;

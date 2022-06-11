@@ -1,0 +1,135 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Api Login - Manoel",
+    "description": "This is an API Rent",
+    "version": "1.0.0",
+    "contact": {
+      "email":"manoelalexandr@gmail.com"
+    }
+  },
+  "paths": {
+    "/api/alunos": {
+      "get": {
+        "tags": ["Alunos"],
+        "summary": "Return all alunos in system",
+        "description": "List all alunos",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "email": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Alunos"],
+        "summary": "Register an aluno in system",
+        "description": "Create aluno in database",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "repassword": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { 
+            "description": "Success"
+          },
+          "400": {
+            "description": "Email or password incorrect!"
+          }
+        }
+      }
+    },
+    "/api/alunos?id={id}" : {
+      "get": {
+        "tags": ["Alunos"],
+        "summary": "Return a aluno by id",
+        "description": "Get by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Aluno id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": { 
+            "description": "Ok"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Specification": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "Aluno": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "number"
+        }
+      }
+    }
+  },
+  "components": {
+  }
+  
+}
