@@ -78,7 +78,7 @@
         }
       }
     },
-    "/api/alunos?id={id}" : {
+    "/api/aluno?id={id}" : {
       "get": {
         "tags": ["Alunos"],
         "summary": "Return a aluno by id",
